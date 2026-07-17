@@ -1,1 +1,1 @@
-# Design-of-two-stage-opamp-with-Miller-compensation
+# Two-Stage CMOS OP Amp with Miller Compensation
