@@ -1,27 +1,119 @@
-# Two-Stage CMOS OP Amp with Miller Compensation
+<h1 align="center">Two-Stage CMOS OTA with Miller Compensation</h1>
 
-Picture
+<p align="center">
+  <img src="images/schematic-with-miller.png" width="700">
+</p>
 
 ## Project Overview
 
-This project presents the complete design, simulation, and verification of a two-stage CMOS operational transconductance amplifier (OTA) using LTspice and TSMC 0.18 μm CMOS models. The objective was to design an amplifier that satisfied gain, bandwidth, phase margin, slew rate, input common-mode range, and power consumption requirements using classical analog integrated circuit design techniques.
+This project was completed as part of my effort to learn analog IC design outside the classroom. The goal was to design a two-stage CMOS operational transconductance amplifier (OTA) from the transistor level using LTspice and the TSMC 0.18 μm CMOS process while meeting a set of performance specifications for gain, bandwidth, phase margin, slew rate, input common-mode range, and power consumption.
 
-The design process began with hand calculations to determine transistor dimensions and bias conditions. The amplifier was then implemented in LTspice, optimized through iterative simulation, and verified against the original design specifications. Miller compensation and a series nulling resistor were incorporated to improve stability while maintaining the required unity-gain bandwidth.
+Rather than relying entirely on simulation, I first used hand calculations and analog IC design equations to estimate transistor dimensions, bias currents, and the compensation network. The circuit was then implemented in LTspice and refined through iterative simulation until all design targets were achieved. During this process, I gained a much deeper understanding of differential amplifiers, current mirrors, frequency compensation, pole-zero behavior, and the tradeoffs involved in analog circuit design.
+
+The design methodology presented here was developed using concepts from *CMOS Analog Circuit Design* by Allen and Holberg along with several IEEE publications on two-stage CMOS operational amplifiers. These references served as learning resources throughout the project, while the circuit implementation, simulation, optimization, and verification were completed independently.
 
 ## Design Specifications
+
+The objective of this project was to design a two-stage CMOS operational transconductance amplifier (OTA) that met a set of performance targets representative of a general-purpose analog amplifier. These specifications were established before beginning the transistor-level design and served as the benchmarks throughout the design, optimization, and verification process.
+
+| Specification | Target |
+|:--------------|-------:|
+| Supply Voltage | 1.8 V |
+| CMOS Process | TSMC 0.18 μm |
+| DC Gain | ≥ 60 dB |
+| Gain-Bandwidth Product | ≥ 50 MHz |
+| Phase Margin | ≥ 60° |
+| Slew Rate | ≥ 20 V/μs |
+| Input Common-Mode Range | −1.0 V to 1.6 V |
+| Load Capacitance | 1 pF |
+| Power Dissipation | ≤ 2 mW |
 
 ## Final Results
 
 ## Circuit Architecture
 
 ## Design Methodology
-    1. Design Specifications
-    2. Process Parameters
-    3. Hand Calculations
-    4. Transistor Sizing
-    5. Frequency Compensation
-    6. LTspice Implementation
 
+The design was completed using the following workflow:
+
+1. Defined the design specifications for gain, bandwidth, phase margin, slew rate, power consumption, and input common-mode range.
+2. Performed hand calculations to determine the initial transistor aspect ratios, bias currents, and Miller compensation network.
+3. Implemented the complete schematic in LTspice using the TSMC 0.18 μm BSIM3 CMOS model library.
+4. Verified the DC operating point to ensure every transistor operated in saturation.
+5. Optimized transistor dimensions and bias currents to improve gain, bandwidth, and power consumption.
+6. Tuned the Miller compensation capacitor and series nulling resistor to achieve the desired BW and phase margin.
+7. Verified the completed design using AC, transient, DC sweep, and operating-point simulations.
+
+The complete hand calculations used to obtain the initial device dimensions are included in **docs/Hand_Calculations.pdf**.
+
+## Design Methodology
+
+The OTA was designed from the transistor level using first-order hand calculations followed by iterative optimization in LTspice. Each stage of the design built upon the previous one until all performance specifications were met.
+
+### 1. Initial Design Specifications
+
+Short paragraph.
+
+### 2. Differential Input Pair (M1–M2)
+
+Explain:
+- chose overdrive
+- calculated gm
+- calculated W/L
+- role of differential pair
+
+Insert hand calculation screenshot.
+
+---
+
+### 3. Current Mirror Active Load (M3–M4)
+
+Explain:
+- converts differential to single-ended
+- sizing
+- current mirror ratio
+
+Insert calculations.
+
+---
+
+### 4. Tail Current Source (M5)
+
+Explain:
+- bias current selection
+- effect on gm and slew rate
+
+---
+
+### 5. Second Gain Stage (M6–M7)
+
+Explain:
+- common-source stage
+- additional voltage gain
+- output swing considerations
+
+---
+
+### 6. Miller Compensation
+
+This deserves its own section.
+
+Explain:
+- chose Cc
+- dominant pole
+- initial poor phase margin
+- added series nulling resistor
+- tuned Rz
+
+Show Bode plots before/after if you have them.
+
+---
+
+### 7. Final Design
+
+Show final schematic.
+
+One paragraph explaining the completed OTA.
 ## Simulation Results
     AC Response
     Slew Rate
