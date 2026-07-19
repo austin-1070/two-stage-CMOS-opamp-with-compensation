@@ -126,6 +126,9 @@ consumption were achieved.
 Finally, AC, transient, DC sweep, and operating-point simulations were performed
 to verify the completed design.
 
+<p align="center">
+  <img src="images/bode-with-miller.png" width="700">
+</p>
 
 
 
