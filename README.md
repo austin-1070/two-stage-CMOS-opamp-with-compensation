@@ -26,9 +26,13 @@ The design methodology presented here was developed using concepts from *CMOS An
 | Input Common-Mode Range | Wide | **−1.8 V to +1.7 V** |
 
 ## Design Methodology
-<img width="383" height="308" alt="image" src="https://github.com/user-attachments/assets/a725f57c-d3ee-4e3a-827c-2960c43a8946" />
+The transistor model used was ...
 
-The design was completed using the following workflow:
+unCox = 
+upCox = 
+<img width="583" height="358" alt="image" src="https://github.com/user-attachments/assets/a725f57c-d3ee-4e3a-827c-2960c43a8946" />
+
+The design was completed as follows:
 
 ### 1. Design Specifications
 
@@ -37,7 +41,7 @@ These specifications were established before beginning the hand analysis and ser
 | Specification | Target |
 |:--------------|-------:|
 | Supply Voltage | 1.8 V |
-| CMOS Process | TSMC 0.18 μm |
+| CMOS Technology | 0.18 μm |
 | DC Gain | ≥ 60 dB |
 | Gain-Bandwidth Product | ≥ 50 MHz |
 | Phase Margin | ≥ 60° |
@@ -46,24 +50,30 @@ These specifications were established before beginning the hand analysis and ser
 | Load Capacitance | 1 pF |
 | Power Dissipation | ≤ 2 mW |
 
+---
 
 ### 2. Compensation Network
 
-The compensation capacitor was selected first based on the desired bandwidth and
-load capacitance. The required slew rate was then used to determine the minimum
-bias current needed to charge and discharge the Miller capacitor.
+First, the compensation capacitor and slew rate were calculated based on the desired bandwidth and load capacitance.
 
+<p align="center">
+  <img width="505" height="245" alt="Screenshot 2026-07-18 003012" src="https://github.com/user-attachments/assets/7f3ea582-2877-423b-845b-e05d4abc377d" />
+</p>
 
-<img width="465" height="163" alt="Screenshot 2026-07-18 003012" src="https://github.com/user-attachments/assets/7f3ea582-2877-423b-845b-e05d4abc377d" />
+The compensating capacitor was calculated assuming the zero of the system is placed at 10 times higher the unity gain bandwidth (GBW). Then using the slew rate and Miller capacitor, the bias current was calculated as 20 μA.
 
 ---
 
 ### 3. Differential Input Stage (M1–M2)
 
-The input differential pair was sized to provide the required transconductance
-while maintaining saturation over the desired input common-mode range.
+The input differential pair was sized to provide the required transconductance while also ensuring the transistors remain in saturation.
 
-*(Show gm, Id, VOV, W/L calculations.)*
+<p align="center">
+  <img width="505" height="255" alt="image" src="https://github.com/user-attachments/assets/89201e1d-0c95-4ff1-95aa-d36e5e71ab4a" />
+</p>
+
+From the unity GBW and the bias current, the transconductance and drain current of M1 
+was calculated. These values were then used to calculate the aspect ratio (w/l) of M1 as 21.363. The same aspect ratio was used for M2 in order to mirror both legs of the differential amplifier stage.
 
 ---
 
