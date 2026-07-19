@@ -123,11 +123,17 @@ compensation capacitor, and the series nulling resistor were then iteratively
 adjusted until the target gain, bandwidth, phase margin, slew rate, and power
 consumption were achieved.
 
-Finally, AC, transient, DC sweep, and operating-point simulations were performed
-to verify the completed design.
 
 <p align="center">
   <img src="images/bode-with-miller.png" width="700">
+</p>
+
+<p align="center">
+  <img src="images/slew-rate.png" width="700">
+</p>
+
+<p align="center">
+  <img src="images/icmr.png" width="700">
 </p>
 
 
