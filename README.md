@@ -66,24 +66,20 @@ The compensating capacitor was calculated assuming the zero of the system is pla
 
 ### 3. Differential Input Stage (M1–M2)
 
-The input differential pair was sized to provide the required transconductance while also ensuring the transistors remain in saturation.
-
 <p align="center">
   <img width="505" height="255" alt="image" src="https://github.com/user-attachments/assets/89201e1d-0c95-4ff1-95aa-d36e5e71ab4a" />
 </p>
 
-From the unity GBW and the bias current, the transconductance and drain current of M1 
-was calculated. These values were then used to calculate the aspect ratio (w/l) of M1 as 21.363. The same aspect ratio was used for M2 in order to mirror both legs of the differential amplifier stage.
+From the unity-gain bandwidth and the bias current, the transconductance and drain current of M1 
+was calculated. These values were then used to calculate the aspect ratio W/L of M1 as 21.363. The same aspect ratio was used for M2 in order to mirror both legs of the differential amplifier stage.
 
 ---
 
 ### 4. Current Mirror Load and Tail Current Source (M3–M5)
 
-The PMOS current mirror was designed to convert the differential signal into a
-single-ended output while establishing the desired bias current. The tail current
-source was then sized to maintain the calculated operating point.
-
-*(Show W/L calculations.)*
+The aspect ratio of M3 was found based off the maximum input common range. Since M3 and M4 form a 1:1 current mirror, M4 was given the same transistor dimensions.
+  <img width="505" height="255" alt="image" src="https://github.com/user-attachments/assets/d5cdb028-cc03-45ca-8e45-22969a5af635" />
+</p>
 
 ---
 
