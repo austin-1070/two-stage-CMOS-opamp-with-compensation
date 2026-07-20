@@ -33,7 +33,7 @@ several IEEE publications on two-stage CMOS operational amplifiers.
 | Phase Margin | ≥ 60° | **61.2°** |
 | Slew Rate | ≥ 20 V/µs | **36.26 V/µs** |
 | Power Dissipation | ≤ 2 mW | **0.67 mW** |
-| Input Common-Mode Range | Wide | **−1.8 V to +1.7 V** |
+| Input Common-Mode Range | -1 V to 1.6 V | **−1.8 V to +1.7 V** |
 
 ## Design Methodology
 LTspice simulations were performed using the TSMC 0.18 µm BSIM3 model library (tsmc018.lib).
@@ -117,7 +117,7 @@ The initial hand calculations provided a functional starting point for the OTA. 
 
 **Transistor optimization**
 - Adjusted the W/L ratio for several transistors to increase open-loop gain.
-- Changed L to 1 µm for each transistorx
+- Changed L to 1 µm for each transistor.
 - Increased the reference current from 20 µA to 30 µA to improve bandwidth.
   
 | Device | Initial W/L *(L = 0.5 µm)* |            Final W/L *(L = 1 µm)* |                                                           
