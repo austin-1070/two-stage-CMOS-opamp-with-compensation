@@ -54,8 +54,6 @@ The process parameters used for the initial hand calculations were:
 
 ### 1. Design Specifications
 
-These specifications were established before beginning the hand analysis and served as benchmarks throughout the design process.
-
 | Specification | Target |
 |:--------------|-------:|
 | Supply Voltage | 1.8 V |
@@ -68,6 +66,8 @@ These specifications were established before beginning the hand analysis and ser
 | Load Capacitance | 1 pF |
 | Power Dissipation | ≤ 2 mW |
 
+
+These specifications were established before beginning the hand analysis and served as benchmarks throughout the design process.
 
 ### 2. Compensation Network
 
@@ -175,6 +175,13 @@ Unity-gain operation was maintained across an input common-mode range of approxi
 
 The simulated quiescent power consumption was approximately **0.67 mW** under the nominal bias conditions.
 
+### Common-Mode Rejection Ratio (CMRR)
+
+<p align="center">
+   <img width="1910" height="902" alt="image" src="https://github.com/user-attachments/assets/6cb1bb20-62d9-4716-99dd-43f80aa2a320" />
+</p>
+
+The OTA achieved a differential gain of 78 dB and a low-frequency common-mode gain of approximately −7 dB, yielding a CMRR of approximately **85 dB**.
 
 ## References
 [1] P. E. Allen and D. R. Holberg, *CMOS Analog Circuit Design*, 2nd ed. Oxford University Press, 2002.
