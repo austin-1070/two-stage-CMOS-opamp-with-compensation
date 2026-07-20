@@ -62,7 +62,7 @@ The process parameters used for the initial hand calculations were:
 | Supply Voltage | ±1.8 V |
 | CMOS Technology | 0.18 μm |
 | DC Gain | ≥ 60 dB |
-| Unity Gain-Bandwidth (GBW) | ≥ 50 MHz |
+| Unity-Gain Bandwidth (UGB) | ≥ 50 MHz |
 | Phase Margin | ≥ 60° |
 | Slew Rate | ≥ 20 V/μs |
 | Input Common-Mode Range | −1.0 V to 1.6 V |
@@ -172,8 +172,7 @@ The measured positive and negative slew rates were approximately **36.26 V/µs**
   <img width="1916" height="907" alt="image" src="https://github.com/user-attachments/assets/80834a71-6c54-4f7c-96c5-49eafa44119b" />
 </p>
 
-Unity-gain operation was maintained across an input common-mode range of approximately **−1.0 V to +1.75 V**.
-
+The input common-mode range was evaluated by sweeping the DC common-mode voltage while measuring the differential gain at 10 Hz. The simulated ICMR was approximately **−1.0 V to +1.75 V**.
 ### Power Consumption
 
 The simulated quiescent power consumption was approximately **0.67 mW** under the nominal bias conditions.
