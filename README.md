@@ -111,7 +111,7 @@ The diode-connected reference transistor establishes the reference current of 20
 
 ---
 
-### 7. Simulation and Optimization
+## Design Optimization
 
 The complete circuit was implemented in LTspice using the TSMC 0.18 μm
 model library. A DC operating-point analysis was first used to verify that all
@@ -121,23 +121,10 @@ adjusted until the target gain, bandwidth, phase margin, slew rate, and power
 consumption were achieved.
 
 
-<p align="center">
-  <img src="images/bode-with-miller.png" width="700">
-</p>
-
-<p align="center">
-  <img src="images/slew-rate.png" width="700">
-</p>
-
-<p align="center">
-  <img src="images/icmr.png" width="700">
-</p>
-
-## Design Optimization
-
 ### Initial LTspice Implementation
-
-<img width="1911" height="890" alt="image" src="https://github.com/user-attachments/assets/12098058-268f-4217-8d50-c6c6fc9d42c2" />
+<p align="center">
+  <img src="images/ota-og.png" width="700">
+</p>
 
 ### Transistor and Bias Adjustments
 ### Nulling Resistor Optimization
