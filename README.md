@@ -1,7 +1,7 @@
 <h1 align="center">Two-Stage CMOS OTA with Miller Compensation</h1>
 
 <p align="center">
-  <img src="images/miller-s4ch.png" width="700">
+  <img src="images/ota-miller.png" width="700">
 </p>
 
 ## Project Overview
@@ -13,17 +13,14 @@ also meeting a set of performance specifications.
 
 I first used hand calculations with IC design equations to estimate 
 transistor dimensions, bias currents, and the compensation network. 
-The circuit was then implemented in LTspice and refined through iterative 
-simulation until all design targets were achieved. During this process, I 
+The circuit was then implemented in LTspice and refined until all design targets were achieved. During this process, I 
 gained a deeper understanding of differential amplifiers, pole-zero behavior, and the 
 tradeoffs involved in analog circuit design.
 
 The design methodology presented here was developed using concepts 
 from *CMOS Analog Circuit Design* by Allen and Holberg along with 
 several IEEE publications on two-stage CMOS operational amplifiers. 
-These references served as learning resources throughout the
-project, while the circuit implementation, simulation, optimization, 
-and verification were completed independently.
+ 
 
 ## Final Results
 
@@ -44,9 +41,9 @@ The transistor model used was ...
 unCox = 
 upCox = 
 
-
-<img width="583" height="358" alt="image" src="https://github.com/user-attachments/assets/a725f57c-d3ee-4e3a-827c-2960c43a8946" />
-
+<p align="center">
+  <img width="583" height="358" alt="image" src="https://github.com/user-attachments/assets/a725f57c-d3ee-4e3a-827c-2960c43a8946" />
+</p>
 The design was completed as follows:
 
 ### 1. Design Specifications
@@ -116,8 +113,8 @@ The diode-connected reference transistor establishes the reference current of 20
 
 ### 7. Simulation and Optimization
 
-The complete circuit was implemented in LTspice using the TSMC 0.18 μm BSIM3
-model library. DC operating-point analysis was first used to verify that all
+The complete circuit was implemented in LTspice using the TSMC 0.18 μm
+model library. A DC operating-point analysis was first used to verify that all
 transistors remained in saturation. Device dimensions, bias currents, the Miller
 compensation capacitor, and the series nulling resistor were then iteratively
 adjusted until the target gain, bandwidth, phase margin, slew rate, and power
@@ -136,24 +133,28 @@ consumption were achieved.
   <img src="images/icmr.png" width="700">
 </p>
 
+## Design Optimization
 
+### Initial LTspice Implementation
 
-### 7. Final Design
+<img width="1911" height="890" alt="image" src="https://github.com/user-attachments/assets/12098058-268f-4217-8d50-c6c6fc9d42c2" />
 
-Show final schematic.
+### Transistor and Bias Adjustments
+### Nulling Resistor Optimization
 
-One paragraph explaining the completed OTA.
+## Final Design
 
 ## Simulation Results
-    AC Response
-    Slew Rate
-    ICMR
-    Operating Point
+
+### AC Response
+### Slew Rate
+### Input Common-Mode Range
+### DC Operating Point
 
 ## Design Tradeoffs
 
-## References
 
+## References
 [1] P. E. Allen and D. R. Holberg, *CMOS Analog Circuit Design*, 2nd ed. Oxford University Press, 2002.
 
 [2] M. Abdullah-Al-Kaiser and I. Jarin, "High Gain Low Offset Faster Two Stage CMOS Op-Amp and Effects of Aspect Ratios on Gain," *2017 IEEE International WIE Conference on Electrical and Computer Engineering (WIECON-ECE)*, Dehradun, India, 2017, pp. 253–256, doi:10.1109/WIECON-ECE.2017.8468913.
