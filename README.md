@@ -1,7 +1,7 @@
 <h1 align="center">Two-Stage CMOS OTA with Miller Compensation</h1>
 
 <p align="center">
-  <img src="images/miller-sch.png" width="700">
+  <img src="images/miller-s4ch.png" width="700">
 </p>
 
 ## Project Overview
