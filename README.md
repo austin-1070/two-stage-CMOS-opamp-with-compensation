@@ -143,6 +143,7 @@ The initial hand calculations provided a functional starting point for the OTA. 
 - Tuned the Miller compensation capacitor from 1 pF to 0.8 pF.
 - Added a 3 kΩ series nulling resistor to improve phase margin while maintaining bandwidth.
 
+---
 
 ## Final Design
 
@@ -150,19 +151,37 @@ The initial hand calculations provided a functional starting point for the OTA. 
   <img src="images/ota-miller.png" width="700">
 </p>
 
+The final OTA uses an NMOS differential input pair with a PMOS current-mirror load for the first gain stage, followed by a common-source second stage. A 0.8 pF Miller capacitor and 3 kΩ series nulling resistor provide frequency compensation. The final circuit is biased using a 30 µA reference current and drives a 1 pF load. 
+
 ## Simulation Results
+
+### Open-Loop AC Response
 
 <p align="center">
   <img src="images/ota-meetspec.png" width="700">
 </p>
 
+The optimized OTA achieved a DC gain of approximately **78 dB**, a unity-gain bandwidth of **56 MHz**, and a phase margin of **61.2°**.
+
+### Slew Rate
+
 <p align="center">
   <img src="images/slew-rate.png" width="700">
 </p>
 
+The measured positive and negative slew rates were approximately **36.26 V/µs** and **36.18 V/µs**, respectively.
+
+### Input Common-Mode Range
+
 <p align="center">
   <img src="images/icmr.png" width="700">
 </p>
+
+Unity-gain operation was maintained across an input common-mode range of approximately **−1.8 V to +1.7 V**.
+
+### Power Consumption
+
+The simulated quiescent power consumption was approximately **0.67 mW** under the nominal bias conditions.
 
 
 ## Design Tradeoffs
