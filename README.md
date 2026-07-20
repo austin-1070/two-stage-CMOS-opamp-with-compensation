@@ -36,15 +36,21 @@ several IEEE publications on two-stage CMOS operational amplifiers.
 | Input Common-Mode Range | Wide | **−1.8 V to +1.7 V** |
 
 ## Design Methodology
-The transistor model used was ...
+LTspice simulations were performed using the TSMC 0.18 µm BSIM3 model library (tsmc018.lib).
 
-unCox = 
-upCox = 
+The process parameters used for the initial hand calculations were:
+
+| Parameter | Value |
+|-----------|------:|
+| UnCox | 230 µA/V² |
+| UpCox | 97 µA/V² |
+| VTN | 0.366 V |
+| VTP | -0.391 V |
 
 <p align="center">
-  <img width="583" height="358" alt="image" src="https://github.com/user-attachments/assets/a725f57c-d3ee-4e3a-827c-2960c43a8946" />
+  <img width="795" height="445" alt="image" src="https://github.com/user-attachments/assets/e9a14192-5abd-4408-8aec-a5a30f4fcb5b" />
 </p>
-The design was completed as follows:
+
 
 ### 1. Design Specifications
 
@@ -62,7 +68,6 @@ These specifications were established before beginning the hand analysis and ser
 | Load Capacitance | 1 pF |
 | Power Dissipation | ≤ 2 mW |
 
----
 
 ### 2. Compensation Network
 
@@ -70,46 +75,33 @@ These specifications were established before beginning the hand analysis and ser
 <p align="center">
   <img width="505" height="245" alt="Screenshot 2026-07-18 003012" src="https://github.com/user-attachments/assets/7f3ea582-2877-423b-845b-e05d4abc377d" />
 </p>
-The compensating capacitor was calculated assuming the 
-zero of the system is placed at 10 times higher the unity gain bandwidth 
-(GBW). Then using the slew rate and Miller capacitor, the bias current was calculated as 20 μA.
 
----
+The initial Miller compensation capacitor was selected from the target unity-gain bandwidth and phase-margin requirements. A starting value of 1 pF was used for the hand design. The bias current was estimated from the target slew rate using the relationship between the available current and the compensation capacitor.
 
 ### 3. Differential Input Stage (M1–M2)
 <p align="center">
   <img width="505" height="255" alt="image" src="https://github.com/user-attachments/assets/89201e1d-0c95-4ff1-95aa-d36e5e71ab4a" />
 </p>
 
-From the unity-gain bandwidth and the bias current, the transconductance and drain current of M1 
-was calculated. These values were then used to calculate the aspect ratio W/L of M1 as 21.363. The same aspect ratio was used for M2 in order to mirror both legs of the differential amplifier stage.
 
----
+The required input-stage transconductance was calculated from the target unity-gain bandwidth and the initial Miller compensation capacitor. The resulting transconductance and branch current were then used to calculate an aspect ratio for M1.
+M1 and M2 were assigned identical dimensions to maintain symmetry in the differential input pair.
 
 ### 4. Current Mirror Load and Tail Current Source (M3–M5)
 <p align="center">
   <img width="343" height="229" alt="image" src="https://github.com/user-attachments/assets/5f714e91-5895-4e17-b4ef-d2ce4fbaba88" />
 </p>
-The aspect ratio of M3 was found based off the maximum input common range. Since M3 and M4 form a 1:1 current mirror, M4 was given the same transistor dimensions.
-
-
----
+The aspect ratio of M3 was calculated from the upper input common-mode requirement. M3 and M4 were assigned equal dimensions to form a 1:1 PMOS current mirror load. M5 was sized to provide the required tail current for the differential input stage.
 
 ### 5. Second Gain Stage (M6–M7)
 <p align="center">
   <img width="699" height="270" alt="image" src="https://github.com/user-attachments/assets/c1cb9d26-6ba1-47e4-9105-1da74584709f" />
 </p>
-To further increase gain, M6 and M7 form a common-source amplifier that also mirrors the current from stage one.
-
----
+The dimensions of M6 were calculated from the required second-stage transconductance and current, and M7 was sized to establish the corresponding bias condition.
 
 ### 6. Bias Network (M8)
 
-The diode-connected reference transistor establishes the reference current of 20 uA.
-
-*(Show mirror ratio calculations.)*
-
----
+M8 is a diode-connected NMOS transistor used to generate the gate-bias voltage for the NMOS current sources. Its dimensions were matched to M5 so that the reference branch established the initial 20 µA bias current.
 
 ## Design Optimization
 
@@ -184,9 +176,6 @@ Unity-gain operation was maintained across an input common-mode range of approxi
 The simulated quiescent power consumption was approximately **0.67 mW** under the nominal bias conditions.
 
 
-## Design Tradeoffs
-
-
 ## References
 [1] P. E. Allen and D. R. Holberg, *CMOS Analog Circuit Design*, 2nd ed. Oxford University Press, 2002.
 
@@ -195,3 +184,5 @@ The simulated quiescent power consumption was approximately **0.67 mW** under th
 [3] C. L. Kavyashree, M. Hemambika, K. Dharani, A. V. Naik, and M. P. Sunil, "Design and Implementation of Two Stage CMOS Operational Amplifier Using 90 nm Technology," *2017 International Conference on Inventive Systems and Control (ICISC)*, Coimbatore, India, 2017, pp. 1–4, doi:10.1109/ICISC.2017.8068601.
 
 [4] Y. Hao, M. Gandara, S. Mitra, S. Cochran, and B. Liu, "Design of a Two-Stage Miller-Compensated Operational Amplifier Using an EDA Tool-Centered Approach," *2024 20th International Conference on Synthesis, Modeling, Analysis and Simulation Methods and Applications to Circuit Design (SMACD)*, Volos, Greece, 2024, pp. 1–4, doi:10.1109/SMACD61181.2024.10745468.
+
+[5] S. Vidhyadharan, *Installation of TSMC 180 nm Technology Files in LT SPICE & NMOS & PMOS Characterization*. Available: https://sanjayvidhyadharan.in/Downloads
