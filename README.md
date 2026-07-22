@@ -185,14 +185,32 @@ The simulated quiescent power consumption was approximately **0.67 mW** under th
 
 The OTA achieved a differential gain of 78 dB and a low-frequency common-mode gain of approximately −7 dB, yielding a CMRR of approximately **85 dB**.
 
-
+---
 ## Sky130 PDK
+
+### Schematic
+<img width="794" height="512" alt="image" src="https://github.com/user-attachments/assets/bb2bb4aa-7f42-4666-99e6-7da1b81d93c7" />
+
+### Gain & Unity-Gain Bandwidth
+<img width="906" height="469" alt="image" src="https://github.com/user-attachments/assets/854d2de0-8f68-43a4-bad9-f43d2e047eff" />
 
 <img width="906" height="469" alt="image" src="https://github.com/user-attachments/assets/bd2d1205-220a-498f-87d0-bab84fc0e7e7" />
 
+### Phase
+
+<img width="906" height="469" alt="image" src="https://github.com/user-attachments/assets/13da44c5-2c90-4d8d-a327-7c0246f4bbef" />
+
+### Comparison with LTspice
+| Metric           | TSMC 0.18 µm LTspice | SKY130 schematic |
+| ---------------- | -------------------: | ---------------: |
+| DC gain          |                78 dB |            68 dB |
+| UGF              |               56 MHz |         55.5 MHz |
+| Phase margin     |                61.2° |            74.2° |
+| Power            |              0.67 mW |          1.10 mW |
+| Miller capacitor |               0.8 pF |          0.25 pF |
+| Nulling resistor |                 3 kΩ |             3 kΩ |
 
 
-<img width="770" height="390" alt="image" src="https://github.com/user-attachments/assets/13da44c5-2c90-4d8d-a327-7c0246f4bbef" />
 
 ## References
 [1] P. E. Allen and D. R. Holberg, *CMOS Analog Circuit Design*, 2nd ed. Oxford University Press, 2002.
